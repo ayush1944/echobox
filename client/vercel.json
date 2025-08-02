@@ -13,11 +13,11 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "headers": [
-        { "key": "Access-Control-Allow-Origin", "value": "https://echobox-one.vercel.app" },
-        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" },
-        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
-      ],
+      "headers": {
+        "Access-Control-Allow-Origin": "https://echobox-one.vercel.app",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type"
+      },
       "dest": "/api/$1"
     },
     {
