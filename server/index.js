@@ -12,8 +12,8 @@ const app = express();
 
 app.use(cors({
   origin: 'https://echobox-one.vercel.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  credentials: true // only if you're sending cookies/auth headers
+  methods: ['GET', 'POST', 'OPTIONS'],
+  credentials: true, // only if you're using cookies/auth headers
 }));
 app.use(express.json());
 
