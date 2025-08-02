@@ -1,6 +1,6 @@
 # Echobox - AI-Powered Feedback & QnA Tracker
 
-![Echobox Screenshot]<img width="2048" height="1164" alt="Image" src="https://github.com/user-attachments/assets/945f1a42-a1e7-4aec-99e2-38c1427981ce" /> **Echobox** is a full-stack web application designed to collect, manage, and analyze user feedback with the power of Google's Gemini AI. It provides a seamless interface for users to submit their thoughts and ask questions, receiving intelligent, real-time answers from an AI assistant.
+![Echobox Screenshot]<img width="2048" height="1164" alt="Image" src="https://github.com/user-attachments/assets/fe652874-ce8e-42e4-867f-fd8530cdaaa3" /> **Echobox** is a full-stack web application designed to collect, manage, and analyze user feedback with the power of Google's Gemini AI. It provides a seamless interface for users to submit their thoughts and ask questions, receiving intelligent, real-time answers from an AI assistant.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://echoboxurl.vercel.app/) ---
 
