@@ -1,9 +1,11 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-
 async function request(endpoint, options = {}) {
     try {
         const response = await fetch(`${API_BASE_URL}/api${endpoint}`, {
             credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+                ...(options.headers || {}),
+            },
             ...options,
         });
         if (!response.ok) {
@@ -16,7 +18,3 @@ async function request(endpoint, options = {}) {
         throw error;
     }
 }
-
-export const getFeedbacks = () => request('/feedback');
-export const submitFeedback = (data) => request('/feedback', { method: 'POST', body: JSON.stringify(data) });
-export const askAI = (question) => request('/ask', { method: 'POST', body: JSON.stringify({ question }) });
