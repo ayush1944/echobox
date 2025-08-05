@@ -1,24 +1,30 @@
+// server.js or api/index.js (your entry point)
 import express from 'express';
-import cors from 'cors';
 import mongoose from 'mongoose';
-import Feedback from './models/feedback.js'; // update path as needed
+import Feedback from './models/feedback.js'; // Adjust if needed
 import serverless from 'serverless-http';
 
 const app = express();
 
-app.use(cors({
-  origin: 'https://echobox-one.vercel.app', // allow frontend origin
-  methods: ['GET', 'POST'],
-  credentials: true,
-}));
+// Manual CORS headers - more reliable in serverless functions
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://echobox-one.vercel.app");
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  next();
+});
+
 app.use(express.json());
 
-// MongoDB connection
+// MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-}).then(() => console.log('MongoDB connected'))
-  .catch((err) => console.error('Mongo Error:', err));
+}).then(() => console.log("MongoDB connected"))
+  .catch((err) => console.error("Mongo Error:", err));
 
 // Routes
 app.get('/api/feedback', async (req, res) => {
